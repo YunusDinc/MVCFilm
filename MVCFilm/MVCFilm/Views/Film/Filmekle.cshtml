@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Filmekle";
+}
+
+<h2>Filmekle</h2>
+
+<div id="container" class="container_12 clearfix">
+    <!-- content -->
+    <div id="content" class="grid_8">
+        <article class="node">
+            <h1 class="title">Contact Us</h1>
+            <div class="content">
+
+                <form  method="post" id="contact_form" enctype="multipart/form-data">
+
+                    <div class="form-item">
+                        <label >Film Adı</label>
+                        <input name="FilmAdi" required />
+                    </div>
+                   
+                    <div class="form-item">
+                        <label>Yönetmen</label>
+                        <input name="Yonetmen" required />
+                    </div>
+                    <div class="form-item">
+                        <label>Kategori</label>
+                        <select name="Kategori" multiple>
+                            <option value="1">Korku</option>
+                            <option value="2">Gerilim</option>
+                            <option value="3">Aksiyon</option>
+                        </select>
+                     </div>
+                    
+                    <div class="form-item">
+                        <label>Yabancı Film:</label>
+                        <input name="yabanci" type="checkbox" />
+                    </div>
+
+
+                    <div class="form-item">
+                        <label>Fragman Adresi:</label>
+                        <input name="fragman"  />
+                    </div>
+
+
+                    <div class="form-item">
+                        <label>Resim:</label>
+                        <input name="resim" type="file" />
+                    </div>
+
+
+                    <div class="form-item">
+                        <label>Konu:</label>
+                        <textarea rows="5" name="Konu"></textarea>
+                    </div>
+                    <div id="edit-actions">
+                        <button type="submit" class="button button_middle button_arrow">
+                            KAYDET
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </div>
+</div>

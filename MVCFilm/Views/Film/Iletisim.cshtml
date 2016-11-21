@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Iletisim";
+}
+
+@section BreadCrumb{
+    <div id="breadcrumb" class="container_12 clearfix">
+    <div class="grid_12">
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                Contacts
+            </li>
+        </ul>
+    </div>
+</div>
+
+}
+<div id="container" class="container_12 clearfix">
+    <!-- content -->
+    <div id="content" class="grid_8">
+        <article class="node">
+            <h1 class="title">Contact Us</h1>
+            <div class="content">
+                <p>
+                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, nsectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                    <br />
+                    <br />
+                    Required fields are marked<span title="This field is required." class="form-required">*</span>
+                </p>
+                <form action="contact_form_send.php" method="post" id="contact_form">
+                    <div class="form-item">
+                        <label for="edit-submitted-name">Name<span title="This field is required." class="form-required">*</span></label>
+                        <input type="text" class="form-text" value="" size="60" id="edit-submitted-name" name="submitted[name]" maxlength="128" required />
+                    </div>
+                    <div class="form-item">
+                        <label for="edit-submitted-email">Email<span title="This field is required." class="form-required">*</span></label>
+                        <input type="email" class="form-text" value="" size="60" id="edit-submitted-email" name="submitted[email]" maxlength="128" required />
+                    </div>
+                    <div class="form-item">
+                        <label for="edit-submitted-subject">Subject</label>
+                        <input type="text" class="form-text" value="" size="60" id="edit-submitted-subject" name="submitted[subject]" maxlength="128" />
+                    </div>
+                    <div class="form-item">
+                        <label for="edit-submitted-message">Message</label>
+                        <textarea class="form-textarea" id="edit-submitted-message" name="submitted[message]" rows="5" cols="60"></textarea>
+                    </div>
+                    <div id="edit-actions">
+                        <button type="submit" class="button button_middle button_arrow">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </div>
+    <!-- end content -->
+    <!-- right sidebar -->
+    <div id="sidebar" class="grid_4">
+        <aside id="block_tweets" class="block block_grey_white">
+            <h3 class="block_title">Latest Tweets</h3>
+            <div class="content clearfix">
+                <div class="tweets"></div>
+                <a href="https://twitter.com/wdtuts" class="button button_small" target="_blank">
+                    <span class="tweets-icon"></span>
+                    Follow us on twitter
+                </a>
+            </div>
+        </aside>
+        <aside id="block_facebook" class="block block_blue">
+            <h3 class="block_title">Like Us On Facebook</h3>
+            <div class="content">
+                <div id="fb-root"></div>
+                <script>
+							( function(d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0];
+									if (d.getElementById(id))
+										return;
+									js = d.createElement(s);
+									js.id = id;
+									js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=199804666731637";
+									fjs.parentNode.insertBefore(js, fjs);
+								}(document, 'script', 'facebook-jssdk'));
+                </script>
+                <div class="fb-like" data-send="false" data-width="300" data-show-faces="true" data-font="arial"></div>
+            </div>
+        </aside>
+    </div>
+    <!-- end right sidebar -->
+</div>

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>@ViewBag.Title</title>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' />
+    <link href="/Content/css/common.css" rel="stylesheet" media="all" />
+    <link href="/Content/css/grid.css" rel="stylesheet" media="all" />
+    <link href="/Content/css/style.css" rel="stylesheet" media="all" />
+    <link href="/Content/css/style-responsive.css" rel="stylesheet" media="all" />
+    <link rel="icon" href="/Content/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/Content/images/57_57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/images/72_72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/images/114_114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/images/144_144.png" />
+    <script src="/Content/js/modernizr.js"></script>
+    <script src="/Content/js/script.js"></script>
+</head>
+<body class="front">
+    <!-- header  -->
+    <header id="header" class="container_12">
+        <div class="grid_4">
+            <div id="logo">
+                <a href="/" title="Home"><img src="/Content/images/logo.png" alt="MovieScope" /></a>
+                <a href="/" title="Home" class="responsive-logo"><img src="/Content/images/logo-resp.png" alt="MovieScope" /></a>
+            </div>
+        </div>
+        <div class="grid_4 search-form">
+            <div id="block-search-form" class="block clearfix">
+                <form method="post" action="#">
+                    <div class="form-type-textfield">
+                        <input type="text" class="form-text" maxlength="128" size="15" placeholder="Search movies, actors, critics" />
+                    </div>
+                    <div class="form-actions">
+                        <input type="submit" class="form-submit" value="" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="grid_4">
+            <div id="block_user" class="block clearfix">
+                <ul>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <span>Merhaba @User.Identity.Name</span>
+                    }
+                    else
+                    {
+                        <li class="first">
+                            <a href="/Account/Register/">Kayıt Ol</a>
+                        </li>
+                        <li class="last">
+                            <a href="/Account/Login/">Giriş Yap</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+    <div id="main_menu" class="container_12">
+        <nav>
+            <!-- main menu in header -->
+            <ul id="superfish_menu" class="grid_12 sf-menu">
+                <li class="active">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li>
+                    <a href="/">Filmler</a>
+                    <ul>
+                        <li>
+                            <a href="/Film/Secim?sec=yabanci">Yabancı Filmler</a>
+                        </li>
+                        <li>
+                            <a href="/Film/Secim?sec=yerli">Yerli Filmler</a>
+                        </li>
+                        <li>
+                            <a href="/Film/Secim?sec=2016">2016 Filmler</a>
+                        </li>
+                        <li>
+                            <a href="/Film/Secim?sec=2015">2015 Filmler</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Film/Fragmanlar">Fragman</a>
+                </li>
+                @if (Request.IsAuthenticated && (User.IsInRole("Admin") | User.IsInRole("Editor")))
+                {
+                    <li>
+                        <a href="/Film/FilmEkle">Film Ekle</a>
+                    </li>
+                }
+                <li>
+                    <a href="/Film/Iletisim">İletişim</a>
+                </li>
+            </ul>
+            <div class="responsive-menu-items">
+
+            </div>
+            <!-- end main menu -->
+        </nav>
+    </div>
+    @RenderSection("BreadCrumb", false)
+
+    <!--Sayfada özellikle section olarak tanımlanan kısımlar RenderSection ile gösterilir. Eğer tüm sayfalarda zorunlu yapmak istemiyorsak ikinci parametresini false yaparız. RenderSection("BreadCrumb") yazarsak bütün sayfalarda zorunlu olur-->
+
+    @RenderBody()
+    <!-- footer -->
+    <footer id="footer" class="container_12">
+        <div class="grid_8">
+            <nav id="block_footer_menu" class="block clearfix">
+                <ul>
+                    <li class="active">
+                        <a href="/">Anasayfa</a>
+                    </li>
+                    <li>
+                        <a href="/Film/Iletisim/">Iletisim</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <div id="block_copyright" class="block clearfix">
+                <p>
+                    &copy; 2016 ERP4 sınıfı <b>info@erp4.com</b>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+    <!-- end footer -->
+    @RenderSection("Scripts", false)
+</body>
+</html>
